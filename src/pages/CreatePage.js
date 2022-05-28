@@ -1,7 +1,6 @@
 import {MDBInput, MDBRow} from "mdb-react-ui-kit";
 import React, {useContext, useState} from "react";
 import {useHistory} from "react-router-dom";
-import {BACK_END_LINK} from "../constants/others.js";
 import {AuthContext} from "../context/AuthContext.js";
 import {useHttp} from "../shared/hooks/http.hook.js";
 import 'react-toastify/dist/ReactToastify.css'
@@ -18,7 +17,7 @@ export const CreatePage = ()=> {
 		if(event.key === 'Enter'){
 			try{
 				const {newLink} = await request(
-					`${BACK_END_LINK}/api/v1/link/generate`,
+					`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/link/generate`,
 					'POST',
 					{from:link},
 					{Authorization:`Bearer ${auth.token}`}

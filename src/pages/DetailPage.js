@@ -3,7 +3,7 @@ import {useParams,Redirect} from 'react-router-dom';
 import LinkCard from "../components/linkCard.js";
 import LinkChart from "../components/linkChart.js";
 import Loader from "../components/loader.js";
-import {BACK_END_LINK} from "../constants/others.js";
+
 import {AuthContext} from "../context/AuthContext.js";
 import {useHttp} from "../shared/hooks/http.hook.js";
 
@@ -16,7 +16,7 @@ export const DetailPage = ()=> {
 	const getLink = useCallback(async()=>{
 		try{
 			const data = await request(
-				`${BACK_END_LINK}/api/v1/link/${linkId}`,
+				`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/link/${linkId}`,
 				"GET",
 				null,
 				{Authorization:`Bearer ${token}`}

@@ -11,9 +11,6 @@ import {
 } from "mdb-react-ui-kit";
 import React, {useContext, useEffect, useState} from "react";
 import {toast, ToastContainer} from "react-toastify";
-import {BACK_END_LINK} from "../constants/others.js";
-
-
 import {AuthContext} from "../context/AuthContext.js";
 import {useHttp} from "../shared/hooks/http.hook.js";
 
@@ -35,7 +32,7 @@ export const AuthPage = () => {
 
 	const signUpHandler = async () => {
 		try {
-			const data = await request(`${BACK_END_LINK}/api/v1/auth/sign-up`,'POST', {...form});
+			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-up`,'POST', {...form});
 			if(data.success === false){
 				return toast.error(data.message);
 			} else {
@@ -47,7 +44,7 @@ export const AuthPage = () => {
 	}
 	const signInHandler = async () => {
 		try {
-			const data = await request(`${BACK_END_LINK}/api/v1/auth/sign-in`,'POST', {...form});
+			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-in`,'POST', {...form});
 
 			if(data.success === false) {
 				return toast.error(data.message)
