@@ -1,4 +1,5 @@
- # Getting Started with Create React App
+# Link to project [Live Project](https://rainbow-trifle-655846.netlify.app/)
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
