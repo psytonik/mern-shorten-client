@@ -1,3 +1,4 @@
+import React from "react";
 import Loader from "./components/loader.js";
 import NavBar from "./components/navbar.js";
 import {AuthContext} from "./context/AuthContext.js";
