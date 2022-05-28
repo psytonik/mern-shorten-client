@@ -13,6 +13,7 @@ const App =() => {
     if(!ready){
         return <Loader />
     }
+
     return (
         <AuthContext.Provider value={{
             token,login,logOut,userId,isAuthenticated
