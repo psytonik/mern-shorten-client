@@ -13,7 +13,7 @@ export const useHttp = () => {
 			}
 			const response = await fetch(url, {method,body,headers});
 			const data = await response.json();
-			if(!data.statusText === "OK"){
+			if(!data.statusText == "OK"){
 				throw new Error('Something going wrong');
 			}
 			setLoading(false)
