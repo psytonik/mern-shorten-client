@@ -23,7 +23,7 @@ export const AuthPage = () => {
 		email: '',
 		password: ''
 	});
-
+	const [checked,setChecked] = useState(false);
 	const changeHandler = (event) => {
 		setForm({...form, [event.target.name]: event.target.value})
 	};
@@ -58,7 +58,9 @@ export const AuthPage = () => {
 			return toast.error(e.message);
 		}
 	}
-
+	const handleChange = () => {
+		setChecked(!checked);
+	};
 	return (
 		<MDBContainer>
 			<ToastContainer/>
@@ -100,9 +102,10 @@ export const AuthPage = () => {
 									</div>
 								<div className="form-check d-flex justify-content-center mb-1">
 									<MDBCheckbox
-										type="checkbox"
 										value=""
 										label="I have read and agree to the terms"
+										defaultChecked={checked}
+										onChange={handleChange}
 									/>
 								</div>
 							</MDBCardBody>
@@ -115,7 +118,7 @@ export const AuthPage = () => {
 											outline
 											size='lg'
 											onClick={signUpHandler}
-											disabled={loading}
+											disabled={loading || checked === false}
 										>
 											Sign Up
 										</MDBBtn>
@@ -126,7 +129,7 @@ export const AuthPage = () => {
 											rounded
 											color='secondary'
 											size='lg'
-											disabled={loading}
+											disabled={loading || checked === false}
 											onClick={signInHandler}
 										> Sign In </MDBBtn>
 									</div>
