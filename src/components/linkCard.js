@@ -12,13 +12,15 @@ const LinkCard = ({link})=> {
 	const history = useHistory()
 
 	const deleteHandler = async () => {
-		if(userId === link.owner){
-			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/link/${link._id}`,'DELETE',null,{Authorization:`Bearer ${token}`});
-			toast.success(data.message)
-			if(data.success === true){
-				history.push('/create');
-			} else {
-				toast.error(data.message)
+		if (window.confirm("Do you really want to leave?")) {
+			if(userId === link.owner){
+				const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/link/${link._id}`,'DELETE',null,{Authorization:`Bearer ${token}`});
+				toast.success(data.message)
+				if(data.success === true){
+					history.push('/links');
+				} else {
+					toast.error(data.message)
+				}
 			}
 		}
 	};
