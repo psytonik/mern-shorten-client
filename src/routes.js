@@ -10,28 +10,19 @@ export const useRoutes = isAuth => {
 	if(isAuth){
 		return(
 			<Switch>
-				<Route path="/links" exact>
-					<LinksPage/>
-				</Route>
-				<Route path="/create" exact>
-					<CreatePage/>
-				</Route>
-				<Route path="/detail/:id" >
-					<DetailPage/>
-				</Route>
+				<Route path="/links" exact component={LinksPage}/>
+				<Route path="/create" exact component={CreatePage}/>
+				<Route path="/detail/:id" component={DetailPage}/>
 				<Redirect  to="/create"/>
-				<Route path="*">
-					<Error404/>
-				</Route>
+				<Route path="*" component={Error404}/>
 			</Switch>
 		)
 	}
 	return (
 		<Switch>
-			<Route path="/" exact>
-				<AuthPage/>
-			</Route>
+			<Route path="/" exact component={AuthPage}/>
 			<Redirect  to="/"/>
+			<Route path="*" component={Error404}/>
 		</Switch>
 	)
 }
