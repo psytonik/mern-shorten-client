@@ -34,7 +34,11 @@ export const AuthPage = () => {
 
 	const signUpHandler = async () => {
 		try {
+			if(form.password.length <8){
+				return toast.error("Short password");
+			}
 			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-up`,'POST', {...form});
+
 			if(data.success === false){
 				return toast.error(data.message);
 			} else {
@@ -98,6 +102,7 @@ export const AuthPage = () => {
 											type='password'
 											label="Password"
 											size='lg'
+											minLength="8"
 											value={form.password}
 											onChange={changeHandler}
 											className='form-control mb-3'
