@@ -1,5 +1,6 @@
 import React from "react";
 import {Switch,Route, Redirect} from 'react-router-dom';
+import Error404 from "./pages/404.js";
 import {AuthPage} from "./pages/AuthPage.js";
 import {CreatePage} from "./pages/CreatePage.js";
 import {DetailPage} from "./pages/DetailPage.js";
@@ -20,7 +21,7 @@ export const useRoutes = isAuth => {
 				</Route>
 				<Redirect  to="/create"/>
 				<Route path="*">
-					<Redirect to="/create"/>
+					<Error404/>
 				</Route>
 			</Switch>
 		)
