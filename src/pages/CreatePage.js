@@ -14,7 +14,6 @@ export const CreatePage = ()=> {
 	const [link,setLink] = useState('');
 	const [btn,setBtn] = useState(true);
 	useEffect(()=>{
-		console.log(link);
 		if(link){
 			setBtn(false)
 		}
