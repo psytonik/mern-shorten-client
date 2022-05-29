@@ -59,6 +59,7 @@ export const AuthPage = () => {
 		}
 	}
 	const handleChange = () => {
+
 		setChecked(!checked);
 	};
 	return (
@@ -118,7 +119,7 @@ export const AuthPage = () => {
 											outline
 											size='lg'
 											onClick={signUpHandler}
-											disabled={loading || checked === false}
+											disabled={loading || checked === false || form.email === "" || form.password === ""}
 										>
 											Sign Up
 										</MDBBtn>
@@ -129,7 +130,7 @@ export const AuthPage = () => {
 											rounded
 											color='secondary'
 											size='lg'
-											disabled={loading || checked === false}
+											disabled={loading || checked === false || form.email === "" || form.password === ""}
 											onClick={signInHandler}
 										> Sign In </MDBBtn>
 									</div>
