@@ -1,5 +1,5 @@
 import React from "react";
-import {MDBTable,MDBTableHead,MDBTableBody} from "mdb-react-ui-kit";
+import {MDBTable, MDBTableHead, MDBTableBody, MDBBtn} from "mdb-react-ui-kit";
 import {Link} from "react-router-dom";
 
 const LinksList = ({links}) => {
@@ -26,7 +26,9 @@ const LinksList = ({links}) => {
 							<td >{link.from}</td>
 							<td >{link.to}</td>
 							<td >
-								<Link to={`/detail/${link._id}`}>Open</Link>
+								<Link to={`/detail/${link._id}`}>
+									<MDBBtn rounded>Open</MDBBtn>
+								</Link>
 							</td>
 						</tr>
 					)
