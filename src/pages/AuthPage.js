@@ -59,19 +59,21 @@ export const AuthPage = () => {
 		}
 	}
 	const handleChange = () => {
-
 		setChecked(!checked);
 	};
+
 	return (
 		<MDBContainer>
 			<ToastContainer/>
-			<MDBRow className="row text-center mt-5">
-				<MDBCol size="md" md='3'>
+			<MDBRow className="row text-center mt-5 d-flex align-items-center align-self-center">
+
+				<MDBCol size="md" md='3' className="align-self-center">
 					<p>Sponsored by</p>
 					<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
 						<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
 					</a>
 				</MDBCol>
+
 				<MDBCol size="md" md='6'>
 						<MDBCard className="shadow-5">
 							<MDBCardHeader>
@@ -139,12 +141,13 @@ export const AuthPage = () => {
 						</MDBCard>
 				</MDBCol>
 
-				<MDBCol size="md" md='3'>
+				<MDBCol size="md" md='3' className="align-self-center">
 					<p>Sponsored by</p>
 					<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
 						<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
 					</a>
 				</MDBCol>
+
 			</MDBRow>
 		</MDBContainer>
 	)
