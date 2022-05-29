@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 export const CreatePage = ()=> {
 	const history = useHistory()
 	const auth = useContext(AuthContext)
-	const {request,loading} = useHttp();
+	const {request} = useHttp();
 	const [link,setLink] = useState('');
 
 	const pressHandler = async (event) => {
@@ -22,7 +22,6 @@ export const CreatePage = ()=> {
 					{from:link},
 					{Authorization:`Bearer ${auth.token}`}
 				);
-				console.log(loading);
 				toast.success('Link Successfully added');
 				if(newLink){
 					history.push(`/detail/${newLink._id}`);
