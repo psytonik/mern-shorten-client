@@ -7,7 +7,8 @@ import {
 	MDBCardHeader,
 	MDBCardTitle,
 	MDBCheckbox,
-	MDBInput
+	MDBInput,
+	MDBContainer, MDBRow, MDBCol
 } from "mdb-react-ui-kit";
 import React, {useContext, useEffect, useState} from "react";
 
@@ -59,16 +60,16 @@ export const AuthPage = () => {
 	}
 
 	return (
-		<>
+		<MDBContainer>
 			<ToastContainer/>
-			<div className="row text-center mt-5">
-				<div className="col-md-3">
+			<MDBRow className="row text-center mt-5">
+				<MDBCol size="md" md='3'>
 					<p>Sponsored by</p>
 					<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
 						<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
 					</a>
-				</div>
-				<div className="col-md-6" >
+				</MDBCol>
+				<MDBCol size="md" md='6'>
 						<MDBCard className="shadow-5">
 							<MDBCardHeader>
 								<MDBCardTitle>Authorization</MDBCardTitle>
@@ -105,33 +106,42 @@ export const AuthPage = () => {
 									/>
 								</div>
 							</MDBCardBody>
-							<MDBCardFooter className=" d-grid d-md-flex justify-content-between">
-								<MDBBtn
-										outline
-										rounded
-										color='secondary'
-										size='lg'
-								        disabled={loading}
-								        onClick={signInHandler}
-								> Sign In </MDBBtn>
-								<MDBBtn
-										color="info"
-										rounded
-										outline
-										size='lg'
-								        onClick={signUpHandler}
-								        disabled={loading}
-								> Sign Up </MDBBtn>
+							<MDBCardFooter>
+								<div className="d-flex justify-content-evenly">
+									<div>
+										<MDBBtn
+											color="info"
+											rounded
+											outline
+											size='lg'
+											onClick={signUpHandler}
+											disabled={loading}
+										>
+											Sign Up
+										</MDBBtn>
+									</div>
+									<div>
+										<MDBBtn
+											outline
+											rounded
+											color='secondary'
+											size='lg'
+											disabled={loading}
+											onClick={signInHandler}
+										> Sign In </MDBBtn>
+									</div>
+								</div>
 							</MDBCardFooter>
 						</MDBCard>
-				</div>
-				<div className="col-md-3">
+				</MDBCol>
+
+				<MDBCol size="md" md='3'>
 					<p>Sponsored by</p>
 					<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
 						<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
 					</a>
-				</div>
-			</div>
-		</>
+				</MDBCol>
+			</MDBRow>
+		</MDBContainer>
 	)
 }
