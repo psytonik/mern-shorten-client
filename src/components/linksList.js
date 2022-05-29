@@ -9,7 +9,7 @@ const LinksList = ({links}) => {
 	return (
 		<div >
 			<h1 className="text-center mt-3">Your Shorted Links</h1>
-			<MDBTable hover striped align="middle">
+			<MDBTable hover striped align="middle" responsive>
 				<MDBTableHead>
 				<tr className='table-primary'>
 					<th scope='col'>#</th>
