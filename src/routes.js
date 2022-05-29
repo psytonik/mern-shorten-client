@@ -19,6 +19,9 @@ export const useRoutes = isAuth => {
 					<DetailPage/>
 				</Route>
 				<Redirect  to="/create"/>
+				<Route path="*">
+					<Redirect to="/create"/>
+				</Route>
 			</Switch>
 		)
 	}

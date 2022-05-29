@@ -1,5 +1,5 @@
 import {MDBInput, MDBRow, MDBBtn, MDBCol} from "mdb-react-ui-kit";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext.js";
 import {useHttp} from "../shared/hooks/http.hook.js";
@@ -12,7 +12,13 @@ export const CreatePage = ()=> {
 	const auth = useContext(AuthContext)
 	const {request} = useHttp();
 	const [link,setLink] = useState('');
-
+	const [btn,setBtn] = useState(true);
+	useEffect(()=>{
+		console.log(link);
+		if(link){
+			setBtn(false)
+		}
+	},[link])
 	const pressHandler = async (event) => {
 			event.preventDefault();
 			try{
@@ -27,34 +33,36 @@ export const CreatePage = ()=> {
 					history.push(`/detail/${newLink._id}`);
 				}
 			} catch (e) {
+				setBtn(true);
 				toast.error(e.message);
 			}
 	}
 	return (
 		<MDBRow>
 			<MDBCol>
-				<div className="col-8 offset-2 pt-2">
+				<MDBRow className="col-8 offset-2 pt-2">
 					<h1 className="text-center">Short Link Generator</h1>
-					<MDBInput
-						id='link'
-						type='url'
-						size='lg'
-						value={link}
-						onChange={e=>setLink(e.target.value)}
+					<MDBRow>
+							<MDBInput
+								id='link'
+								type='url'
+								size='lg'
+								value={link}
+								onChange={e=>setLink(e.target.value)}
+								label="Insert Your Link"
+							/>
 
-						label="Insert Your Link"
-					/>
-					<MDBBtn
-						type="button"
-						className='my-2'
-						rounded
-						color='info'
-						size='lg'
-						disabled={false}
-						onClick={pressHandler}
-					>Generate</MDBBtn>
+							<MDBBtn
+								type="button"
+								className='my-2'
+								color='info'
+								size='lg'
+								disabled={btn}
+								onClick={pressHandler}
+							>Generate</MDBBtn>
+					</MDBRow>
 					<ToastContainer/>
-				</div>
+				</MDBRow>
 			</MDBCol>
 		</MDBRow>
 	)
