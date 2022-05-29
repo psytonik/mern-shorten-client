@@ -1,5 +1,5 @@
 import React from "react";
-import {MDBTable} from "mdb-react-ui-kit";
+import {MDBTable,MDBTableHead,MDBTableBody} from "mdb-react-ui-kit";
 import {Link} from "react-router-dom";
 
 const LinksList = ({links}) => {
@@ -9,29 +9,29 @@ const LinksList = ({links}) => {
 	return (
 		<div >
 			<h1 className="text-center mt-3">Your Shorted Links</h1>
-			<MDBTable hover>
-				<thead>
-				<tr>
-					<th>#</th>
-					<th>Long Link</th>
-					<th>Short Link</th>
-					<th>Action</th>
+			<MDBTable hover striped align="middle">
+				<MDBTableHead>
+				<tr className='table-primary'>
+					<th scope='col'>#</th>
+					<th scope='col'>Long Link</th>
+					<th scope='col'>Short Link</th>
+					<th scope='col'>Action</th>
 				</tr>
-				</thead>
-				<tbody>
+				</MDBTableHead>
+				<MDBTableBody>
 				{ links && links.map((link,ind)=>{
 					return(
-						<tr key={ind}>
-							<td>{ind+1}</td>
-							<td>{link.from}</td>
-							<td>{link.to}</td>
-							<td>
+						<tr key={ind} >
+							<td scope='row'>{ind+1}</td>
+							<td scope='row'>{link.from}</td>
+							<td scope='row'>{link.to}</td>
+							<td scope='row'>
 								<Link to={`/detail/${link._id}`}>Open</Link>
 							</td>
 						</tr>
 					)
 				})}
-				</tbody>
+				</MDBTableBody>
 			</MDBTable>
 		</div>
 	);

@@ -1,4 +1,4 @@
-import {MDBInput, MDBRow,MDBBtn} from "mdb-react-ui-kit";
+import {MDBInput, MDBRow, MDBBtn, MDBCol} from "mdb-react-ui-kit";
 import React, {useContext, useState} from "react";
 import {useHistory} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext.js";
@@ -32,28 +32,30 @@ export const CreatePage = ()=> {
 	}
 	return (
 		<MDBRow>
-			<div className="col-8 offset-2 pt-2">
-				<h1 className="text-center">Short Link Generator</h1>
-				<MDBInput
-					id='link'
-					type='url'
-					size='lg'
-					value={link}
-					onChange={e=>setLink(e.target.value)}
+			<MDBCol>
+				<div className="col-8 offset-2 pt-2">
+					<h1 className="text-center">Short Link Generator</h1>
+					<MDBInput
+						id='link'
+						type='url'
+						size='lg'
+						value={link}
+						onChange={e=>setLink(e.target.value)}
 
-					label="Insert Your Link"
+						label="Insert Your Link"
 					/>
-				<MDBBtn
-					type="button"
-					className='my-2'
-					rounded
-					color='info'
-					size='lg'
-					disabled={false}
-					onClick={pressHandler}
-				>Generate</MDBBtn>
-				<ToastContainer/>
-			</div>
+					<MDBBtn
+						type="button"
+						className='my-2'
+						rounded
+						color='info'
+						size='lg'
+						disabled={false}
+						onClick={pressHandler}
+					>Generate</MDBBtn>
+					<ToastContainer/>
+				</div>
+			</MDBCol>
 		</MDBRow>
 	)
 }
