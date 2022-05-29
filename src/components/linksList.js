@@ -22,10 +22,10 @@ const LinksList = ({links}) => {
 				{ links && links.map((link,ind)=>{
 					return(
 						<tr key={ind} >
-							<td scope='row'>{ind+1}</td>
-							<td scope='row'>{link.from}</td>
-							<td scope='row'>{link.to}</td>
-							<td scope='row'>
+							<td >{ind+1}</td>
+							<td >{link.from}</td>
+							<td >{link.to}</td>
+							<td >
 								<Link to={`/detail/${link._id}`}>Open</Link>
 							</td>
 						</tr>
