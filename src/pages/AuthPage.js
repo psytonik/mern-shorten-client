@@ -8,7 +8,7 @@ import {
 	MDBCardTitle,
 	MDBCheckbox,
 	MDBInput,
-	MDBContainer, MDBRow, MDBCol, MDBCardText
+	MDBContainer, MDBRow, MDBCol, MDBCardText, MDBTypography, MDBIcon
 } from "mdb-react-ui-kit";
 import React, {useContext, useEffect, useState} from "react";
 
@@ -70,7 +70,10 @@ export const AuthPage = () => {
 		<MDBContainer>
 			<ToastContainer/>
 			<MDBRow className="row text-center mt-5 d-flex align-items-center align-self-center">
-
+				<MDBTypography>
+					<h1 className='text-info'>Shorten <MDBIcon fas icon="brain" /></h1>
+					<h4 className='text-secondary'>Make your URL short</h4>
+				</MDBTypography>
 				<MDBCol size="md" md='3' className="align-self-center">
 					<MDBCard>
 						<MDBCardBody>
