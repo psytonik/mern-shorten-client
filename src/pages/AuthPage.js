@@ -33,7 +33,7 @@ export const AuthPage = () => {
 		setForm({...form, [event.target.name]: event.target.value})
 	};
 	useEffect(() => {
-		toast.error(`${error}`)
+		toast.error(error);
 		clearErrors();
 	}, [error,clearErrors]);
 
