@@ -8,7 +8,7 @@ import {
 	MDBCardTitle,
 	MDBCheckbox,
 	MDBInput,
-	MDBContainer, MDBRow, MDBCol
+	MDBContainer, MDBRow, MDBCol, MDBCardText
 } from "mdb-react-ui-kit";
 import React, {useContext, useEffect, useState} from "react";
 
@@ -72,10 +72,17 @@ export const AuthPage = () => {
 			<MDBRow className="row text-center mt-5 d-flex align-items-center align-self-center">
 
 				<MDBCol size="md" md='3' className="align-self-center">
-					<p>Sponsored by</p>
-					<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
-						<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
-					</a>
+					<MDBCard>
+						<MDBCardBody>
+							<MDBCardTitle>Sponsored by</MDBCardTitle>
+							<MDBCardText>
+								<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
+									<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
+								</a>
+							</MDBCardText>
+
+						</MDBCardBody>
+					</MDBCard>
 				</MDBCol>
 
 				<MDBCol size="md" md='6'>
@@ -147,10 +154,17 @@ export const AuthPage = () => {
 				</MDBCol>
 
 				<MDBCol size="md" md='3' className="align-self-center">
-					<p>Sponsored by</p>
-					<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
-						<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
-					</a>
+					<MDBCard>
+						<MDBCardBody>
+							<MDBCardTitle>Sponsored by</MDBCardTitle>
+							<MDBCardText>
+								<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
+									<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
+								</a>
+							</MDBCardText>
+
+						</MDBCardBody>
+					</MDBCard>
 				</MDBCol>
 
 			</MDBRow>
