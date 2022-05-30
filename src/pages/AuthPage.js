@@ -8,7 +8,12 @@ import {
 	MDBCardTitle,
 	MDBCheckbox,
 	MDBInput,
-	MDBContainer, MDBRow, MDBCol, MDBCardText, MDBTypography, MDBIcon
+	MDBContainer,
+	MDBRow,
+	MDBCol,
+	MDBCardText,
+	MDBTypography,
+	MDBIcon
 } from "mdb-react-ui-kit";
 import React, {useContext, useEffect, useState} from "react";
 
@@ -28,14 +33,14 @@ export const AuthPage = () => {
 		setForm({...form, [event.target.name]: event.target.value})
 	};
 	useEffect(() => {
-		toast.error(error)
+		toast.error(`${error}`)
 		clearErrors();
 	}, [error,clearErrors]);
 
 	const signUpHandler = async () => {
 		try {
 			if(form.password.length <8){
-				return toast.error("Short password");
+				return toast.error("Short password, Password must be minimum 8 characters at least");
 			}
 			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-up`,'POST', {...form});
 

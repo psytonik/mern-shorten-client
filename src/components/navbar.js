@@ -24,6 +24,7 @@ const NavBar = () => {
 	return (
 		<MDBNavbar expand='lg' light bgColor='light'>
 			<MDBContainer fluid>
+
 				<MDBNavbarBrand href="/" className="text-info">Shorten <MDBIcon fas icon="brain" /></MDBNavbarBrand>
 
 				<MDBNavbarToggler
