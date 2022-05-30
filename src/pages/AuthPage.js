@@ -33,7 +33,6 @@ export const AuthPage = () => {
 		setForm({...form, [event.target.name]: event.target.value})
 	};
 	useEffect(() => {
-		toast.error(error);
 		clearErrors();
 	}, [error,clearErrors]);
 
@@ -75,9 +74,11 @@ export const AuthPage = () => {
 		<MDBContainer>
 			<ToastContainer/>
 			<MDBRow className="row text-center mt-5 d-flex align-items-center align-self-center">
-				<MDBTypography>
-					<h1 className='text-info'>Shorten <MDBIcon fas icon="brain" /></h1>
-					<h4 className='text-secondary'>Make your URL short</h4>
+				<MDBTypography tag='h1' colorText="info">
+					Shorten <MDBIcon fas icon="brain"/>
+				</MDBTypography>
+				<MDBTypography tag='h4' colorText="secondary" className="pb-3">
+					Make your URL short
 				</MDBTypography>
 				<MDBCol size="md" md='3' className="align-self-center">
 					<MDBCard>
