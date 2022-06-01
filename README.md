@@ -1,4 +1,4 @@
-# Link to [Live Project](https://rainbow-trifle-655846.netlify.app/).
+# Link to [Live Project](https://shn.fyi).
 ## BackEnd repository [link](https://github.com/psytonik/mern-shorten).
 
 ## You must add to Environment variables `REACT_APP_PUBLIC_LINK` with `server link` at you hosting or create `.env` file inside your project

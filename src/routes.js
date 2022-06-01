@@ -21,7 +21,7 @@ export const useRoutes = isAuth => {
 	return (
 		<Switch>
 			<Route path="/" exact component={AuthPage}/>
-			<Redirect  to="/"/>
+			{/*<Redirect  to="/"/>*/}
 			<Route path="*" component={Error404}/>
 		</Switch>
 	)
