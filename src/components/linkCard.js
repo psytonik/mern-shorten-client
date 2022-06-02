@@ -55,7 +55,7 @@ const LinkCard = ({link})=> {
 							>
 								{link.to}
 							</a></p>
-							<p>Original Link: <a href={link.from} target="_blank" rel="noopener noreferrer">{link.from}</a></p>
+							<p>Original Link: <a href={link.from} target="_blank" rel="noopener noreferrer">{link.from.substring(0,75)}...</a></p>
 							<p>Total Clicks: <strong>{link.clicks}</strong></p>
 							<MDBBtn
 								color='danger'

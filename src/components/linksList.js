@@ -13,7 +13,7 @@ const LinksList = ({links}) => {
 				<MDBTableHead>
 				<tr className='table-primary'>
 					<th scope='col'>#</th>
-					<th scope='col'>Long Link</th>
+					<th scope='col'>Original Link</th>
 					<th scope='col'>Short Link</th>
 					<th scope='col'>Action</th>
 				</tr>
@@ -23,7 +23,7 @@ const LinksList = ({links}) => {
 					return(
 						<tr key={ind} >
 							<td >{ind+1}</td>
-							<td >{link.from}</td>
+							<td >{link.from.substring(0,75)}...</td>
 							<td >{link.to}</td>
 							<td >
 								<Link to={`/detail/${link._id}`}>
