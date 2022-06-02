@@ -1,7 +1,27 @@
 import moment from "moment";
 import React from 'react';
-import {Line} from 'react-chartjs-2';
+import {
+	Chart as ChartJS,
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
 import {MONTHS_ARR} from '../constants/months.js';
+ChartJS.register(
+	CategoryScale,
+	LinearScale,
+	PointElement,
+	LineElement,
+	Title,
+	Tooltip,
+	Legend
+);
 
 const LinkChart = ({link}) => {
 
@@ -11,7 +31,7 @@ const LinkChart = ({link}) => {
 	);
 
 	return <div style={{width:'100%',height:'500px'}}>
-		<h2 className="text-center mt-3">Click Statistics</h2>
+		{/*<h2 className="text-center mt-3"></h2>*/}
 		<Line
 			type="line"
 			data={{
@@ -26,13 +46,21 @@ const LinkChart = ({link}) => {
 					}
 				]
 			}}
-			options={{
-				maintainAspectRatio:false,
-				responsive:true,
-				scales: {
-					y: {beginAtZero: true}
+			options={
+				{
+					maintainAspectRatio:false,
+					responsive:true,
+					scales: {
+						y: {beginAtZero: true}
+					},
+					plugins: {
+						title: {
+							display: true,
+							text: 'Click Statistics',
+						},
+					}
 				}
-			}}
+			}
 		/>
 	</div>
 }
