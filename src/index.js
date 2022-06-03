@@ -8,4 +8,8 @@ import App from './App';
 const container = document.getElementById('root');
 
 
-ReactDOM.render(<Router><App /></Router>, container);
+ReactDOM.render(
+	<Router>
+		<App />
+	</Router>,
+	container);

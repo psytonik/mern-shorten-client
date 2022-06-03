@@ -1,4 +1,4 @@
-import {Container} from "@mui/material";
+import {Container, Grid} from "@mui/material";
 import React, {useCallback, useContext, useEffect, useState} from "react";
 import {useParams,Redirect} from 'react-router-dom';
 import LinkCard from "../components/linkCard.js";
@@ -37,15 +37,15 @@ export const DetailPage = ()=> {
 		return <Loader />
 	}
 	return (
-		<Container>
-			<div>
-				<div>
+		<Container  sx={{ mt: 4, mb: 4 }}>
+			<Grid container spacing={2}>
+				<Grid item md={4}>
 					{!loading && link && <LinkCard link={link} />}
-				</div>
-				<div className="col-md-8">
+				</Grid>
+				<Grid item md={8}>
 					{!loading && link && <LinkChart link={link}/>}
-				</div>
-			</div>
+				</Grid>
+			</Grid>
 		</Container>
 	)
 }

@@ -1,3 +1,4 @@
+import {Paper} from "@mui/material";
 import moment from "moment";
 import React from 'react';
 import {
@@ -30,39 +31,46 @@ const LinkChart = ({link}) => {
 		(month) => months.filter((m) => m === month).length
 	);
 
-	return <div style={{width:'100%',height:'500px'}}>
-
-		<Line
-			type="line"
-			data={{
-				labels:MONTHS_ARR,
-				datasets: [
-					{
-						label:'clicks',
-						data:clickCountByMonth,
-						backgroundColor: 'rgba(255, 99, 132, 0.2)',
-						borderColor:'rgba(255, 99, 132, 1)',
-						borderWidth: 3
-					}
-				]
+	return (
+		<Paper
+			sx={{
+				p: 2,
+				display: 'flex',
+				flexDirection: 'column',
+				height: 270,
 			}}
-			options={
-				{
-					maintainAspectRatio:false,
-					responsive:true,
-					scales: {
-						y: {beginAtZero: true}
-					},
-					plugins: {
-						title: {
-							display: true,
-							text: 'Click Statistics',
-						},
-					}
-				}
-			}
-		/>
-	</div>
+		>
+			<Line
+				type="line"
+				data={{
+									labels:MONTHS_ARR,
+									datasets: [
+										{
+											label:'clicks',
+											data:clickCountByMonth,
+											backgroundColor: 'rgba(255, 99, 132, 0.2)',
+											borderColor:'rgba(255, 99, 132, 1)',
+											borderWidth: 3
+										}
+									]
+								}}
+				options={{
+									maintainAspectRatio:false,
+									responsive:true,
+									scales: {
+										y: {beginAtZero: true}
+									},
+									plugins: {
+										title: {
+											display: true,
+											text: 'Click Statistics',
+										},
+									}
+								}}
+			/>
+		</Paper>
+
+	)
 }
 
 
