@@ -3,7 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {AppBar, Box, Button, Container, IconButton, Menu, Toolbar, Typography} from "@mui/material";
 import MenuItem from '@mui/material/MenuItem';
 import React, {useContext, useState} from 'react';
-import {useHistory,Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext.js";
 
 const NavBar = () => {
@@ -33,22 +33,24 @@ const NavBar = () => {
 				<Toolbar disableGutters>
 					{/*LEFT LOGO*/}
 
-					<Typography
-						variant="h5"
-						noWrap
-						component="h5"
-						sx={{
-							mr: 2,
-							display: { xs: 'none', md: 'flex' },
-							fontFamily: 'monospace',
-							fontWeight: 700,
-							letterSpacing: '.3rem',
-							color: 'inherit',
-							textDecoration: 'none',
-						}}
-					>
-						Sh<BlurCircularSharpIcon fontSize="large"/>rten
-					</Typography>
+					<Link to="/" style={{textDecoration: 'none', color: 'white'}}>
+						<Typography
+							variant="h5"
+							noWrap
+							component="h5"
+							sx={{
+								mr: 2,
+								display: {xs: 'none', md: 'flex'},
+								fontFamily: 'monospace',
+								fontWeight: 700,
+								letterSpacing: '.3rem',
+								color: 'inherit',
+								textDecoration: 'none',
+							}}
+						>
+							Sh<BlurCircularSharpIcon />rten
+						</Typography>
+					</Link>
 
 					<Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
 						<IconButton
@@ -80,7 +82,7 @@ const NavBar = () => {
 							}}
 						>
 
-							<Link to='/create' style={{textDecoration:'none'}}>
+							<Link to='/create' style={{textDecoration: 'none'}}>
 								<MenuItem onClick={handleCloseNavMenu}>
 									<Typography textAlign="center">
 										Create
@@ -88,7 +90,7 @@ const NavBar = () => {
 								</MenuItem>
 							</Link>
 
-							<Link to='/links' style={{textDecoration:'none'}}>
+							<Link to='/links' style={{textDecoration: 'none'}}>
 								<MenuItem onClick={handleCloseNavMenu}>
 									<Typography textAlign="center">
 										Links
@@ -96,7 +98,7 @@ const NavBar = () => {
 								</MenuItem>
 							</Link>
 
-							<Link to="/" onClick={logOutHandler} style={{textDecoration:'none'}}>
+							<Link to="/" onClick={logOutHandler} style={{textDecoration: 'none'}}>
 								<MenuItem onClick={handleCloseNavMenu}>
 									<Typography textAlign="center">
 										LogOut
@@ -109,41 +111,43 @@ const NavBar = () => {
 
 					{/*Middle logo*/}
 
-					<Typography
-						variant="h5"
-						noWrap
-						component="h5"
-						href=""
-						sx={{
-							mr: 2,
-							display: {xs: 'flex', md: 'none'},
-							flexGrow: 1,
-							fontFamily: 'monospace',
-							fontWeight: 700,
-							letterSpacing: '.3rem',
-							color: 'inherit',
-							textDecoration: 'none',
-						}}
-					>
-						Sh<BlurCircularSharpIcon fontSize="large"/>rten
-					</Typography>
+						<Typography
+							variant="h5"
+							noWrap
+							component="h5"
+							href=""
+							sx={{
+								mr: 2,
+								display: {xs: 'flex', md: 'none'},
+								flexGrow: 1,
+								fontFamily: 'monospace',
+								fontWeight: 700,
+								letterSpacing: '.3rem',
+								color: 'inherit',
+								textDecoration: 'none',
+							}}
+						>
+							<Link to="/" style={{textDecoration: 'none', color: 'white'}}>
+							Sh<BlurCircularSharpIcon />rten
+							</Link>
 
+						</Typography>
 					<Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-						<Link to='/create' style={{textDecoration:'none'}}>
+						<Link to='/create' style={{textDecoration: 'none'}}>
 							<Button
 								sx={{my: 2, color: 'white', display: 'block'}}
 							>
 								Create
 							</Button>
 						</Link>
-						<Link to='/links' style={{textDecoration:'none'}}>
+						<Link to='/links' style={{textDecoration: 'none'}}>
 							<Button
 								sx={{my: 2, color: 'white', display: 'block'}}
 							>
 								Links
 							</Button>
 						</Link>
-						<Link to="/" onClick={logOutHandler} style={{textDecoration:'none'}}>
+						<Link to="/" onClick={logOutHandler} style={{textDecoration: 'none'}}>
 							<Button
 								sx={{my: 2, color: 'white', display: 'block'}}
 							>
