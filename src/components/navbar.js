@@ -39,8 +39,7 @@ const NavBar = () => {
 						component="h5"
 						sx={{
 							mr: 2,
-							display: {xs: 'none', md: 'flex'},
-							flexGrow: 1,
+							display: { xs: 'none', md: 'flex' },
 							fontFamily: 'monospace',
 							fontWeight: 700,
 							letterSpacing: '.3rem',
@@ -81,15 +80,15 @@ const NavBar = () => {
 							}}
 						>
 
-							<Link to='/create' sx={{underline:'none'}}>
+							<Link to='/create' style={{textDecoration:'none'}}>
 								<MenuItem onClick={handleCloseNavMenu}>
-									<Typography textAlign="center" sx={{underline: 'none'}}>
+									<Typography textAlign="center">
 										Create
 									</Typography>
 								</MenuItem>
 							</Link>
 
-							<Link to='/links' sx={{underline: 'none'}}>
+							<Link to='/links' style={{textDecoration:'none'}}>
 								<MenuItem onClick={handleCloseNavMenu}>
 									<Typography textAlign="center">
 										Links
@@ -97,7 +96,7 @@ const NavBar = () => {
 								</MenuItem>
 							</Link>
 
-							<Link to="/" onClick={logOutHandler} sx={{underline: 'none'}}>
+							<Link to="/" onClick={logOutHandler} style={{textDecoration:'none'}}>
 								<MenuItem onClick={handleCloseNavMenu}>
 									<Typography textAlign="center">
 										LogOut
@@ -130,21 +129,21 @@ const NavBar = () => {
 					</Typography>
 
 					<Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-						<Link to='/create' sx={{underline: 'none'}}>
+						<Link to='/create' style={{textDecoration:'none'}}>
 							<Button
 								sx={{my: 2, color: 'white', display: 'block'}}
 							>
 								Create
 							</Button>
 						</Link>
-						<Link to='/links' sx={{underline: 'none'}}>
+						<Link to='/links' style={{textDecoration:'none'}}>
 							<Button
 								sx={{my: 2, color: 'white', display: 'block'}}
 							>
 								Links
 							</Button>
 						</Link>
-						<Link to="/" onClick={logOutHandler} sx={{underline: 'none'}}>
+						<Link to="/" onClick={logOutHandler} style={{textDecoration:'none'}}>
 							<Button
 								sx={{my: 2, color: 'white', display: 'block'}}
 							>
@@ -152,6 +151,7 @@ const NavBar = () => {
 							</Button>
 						</Link>
 					</Box>
+
 				</Toolbar>
 			</Container>
 		</AppBar>
@@ -160,12 +160,4 @@ const NavBar = () => {
 
 export default NavBar;
 
-
-// NAVIGATION LINKS
-
-
-/// LOGO MIDDLE
-
-
-//// LOGO LEFT
 
