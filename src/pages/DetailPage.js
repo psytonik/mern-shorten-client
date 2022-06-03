@@ -1,3 +1,4 @@
+import {Container} from "@mui/material";
 import React, {useCallback, useContext, useEffect, useState} from "react";
 import {useParams,Redirect} from 'react-router-dom';
 import LinkCard from "../components/linkCard.js";
@@ -36,15 +37,15 @@ export const DetailPage = ()=> {
 		return <Loader />
 	}
 	return (
-		<div className="container">
-			<div className="row">
-				<div className="col-md-4 mt-3">
+		<Container>
+			<div>
+				<div>
 					{!loading && link && <LinkCard link={link} />}
 				</div>
 				<div className="col-md-8">
 					{!loading && link && <LinkChart link={link}/>}
 				</div>
 			</div>
-		</div>
+		</Container>
 	)
 }

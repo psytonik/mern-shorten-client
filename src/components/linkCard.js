@@ -1,10 +1,5 @@
-import {
-	MDBBtn,
-	MDBCard,
-	MDBCardBody,
-	MDBCardHeader,
-	MDBCardTitle,
-} from "mdb-react-ui-kit";
+import {Button, Card, CardContent, CardHeader, Typography} from "@mui/material";
+
 import React, {useContext} from "react";
 import {AuthContext} from "../context/AuthContext.js";
 import {useHttp} from "../shared/hooks/http.hook.js";
@@ -42,12 +37,12 @@ const LinkCard = ({link})=> {
 	};
 
 	return (
-					<MDBCard className="shadow-5">
+					<Card>
 						<ToastContainer/>
-						<MDBCardHeader>
-							<MDBCardTitle className="text-center">Link</MDBCardTitle>
-						</MDBCardHeader>
-						<MDBCardBody>
+						<CardHeader>
+							<Typography>Link</Typography>
+						</CardHeader>
+						<CardContent>
 							<p>Date of creation: <strong>{new Date(link.createdAt).toLocaleDateString()}</strong></p>
 							<p>ShortLink: <a
 								href={link.to}
@@ -57,12 +52,13 @@ const LinkCard = ({link})=> {
 							</a></p>
 							<p>Original Link: <a href={link.from} target="_blank" rel="noopener noreferrer">{link.from.substring(0,75)}...</a></p>
 							<p>Total Clicks: <strong>{link.clicks}</strong></p>
-							<MDBBtn
-								color='danger'
+							<Button
+								variant="outlined"
+								color="warning"
 								onClick={deleteHandler}
-								>Delete</MDBBtn>
-						</MDBCardBody>
-					</MDBCard>
+								>Delete</Button>
+						</CardContent>
+					</Card>
 	)
 }
 

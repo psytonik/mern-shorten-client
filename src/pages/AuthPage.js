@@ -1,20 +1,15 @@
-
+import BlurCircularSharpIcon from "@mui/icons-material/BlurCircularSharp.js";
 import {
-	MDBBtn,
-	MDBCard,
-	MDBCardBody,
-	MDBCardFooter,
-	MDBCardHeader,
-	MDBCardTitle,
-	MDBCheckbox,
-	MDBInput,
-	MDBContainer,
-	MDBRow,
-	MDBCol,
-	MDBCardText,
-	MDBTypography,
-	MDBIcon
-} from "mdb-react-ui-kit";
+	Box,
+	Button,
+	Checkbox,
+	Container,
+	CssBaseline,
+	FormControlLabel,
+	Grid,
+	TextField,
+	Typography
+} from "@mui/material";
 import React, {useContext, useEffect, useState} from "react";
 
 import {toast, ToastContainer} from "react-toastify";
@@ -28,22 +23,22 @@ export const AuthPage = () => {
 		email: '',
 		password: ''
 	});
-	const [checked,setChecked] = useState(false);
+	const [checked, setChecked] = useState(false);
 	const changeHandler = (event) => {
 		setForm({...form, [event.target.name]: event.target.value})
 	};
 	useEffect(() => {
 		clearErrors();
-	}, [error,clearErrors]);
+	}, [error, clearErrors]);
 
 	const signUpHandler = async () => {
 		try {
-			if(form.password.length <8){
+			if (form.password.length < 8) {
 				return toast.error("Short password, Password must be minimum 8 characters at least");
 			}
-			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-up`,'POST', {...form});
+			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-up`, 'POST', {...form});
 
-			if(data.success === false){
+			if (data.success === false) {
 				return toast.error(data.message);
 			} else {
 				return toast.success(data.message);
@@ -54,129 +49,137 @@ export const AuthPage = () => {
 	}
 	const signInHandler = async () => {
 		try {
-			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-in`,'POST', {...form});
+			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-in`, 'POST', {...form});
 
-			if(data.success === false) {
+			if (data.success === false) {
 				return toast.error(data.message)
 			} else {
-				await auth.login(data.token,data.userId);
+				await auth.login(data.token, data.userId);
 				return toast.success(data.message);
 			}
 		} catch (e) {
 			return toast.error(e.message);
 		}
 	}
-	const handleChange = () => {
-		setChecked(!checked);
+	const handleChange = (event) => {
+		setChecked(event.target.checked);
 	};
 
 	return (
-		<MDBContainer>
-			<ToastContainer/>
-			<MDBRow className="row text-center mt-5 d-flex align-items-center align-self-center">
-				<MDBTypography tag='h1' colorText="info">
-					Shorten <MDBIcon fas icon="brain"/>
-				</MDBTypography>
-				<MDBTypography tag='h4' colorText="secondary" className="pb-3">
+		<Container component="main" maxWidth="xs">
+			<CssBaseline/>
+			<Box
+				sx={{
+					marginTop: 8,
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}
+			>
+				<Typography
+					variant="h3"
+					noWrap
+					component="h3"
+					sx={{
+						mr: 2,
+						display: {xs: 'flex', md: 'flex'},
+						flexGrow: 1,
+						fontFamily: 'monospace',
+						fontWeight: 700,
+						letterSpacing: '.3rem',
+						color: 'inherit',
+						textDecoration: 'none',
+					}}
+				>
+					Sh<BlurCircularSharpIcon fontSize="large"/>rten
+				</Typography>
+
+				<Typography
+					variant="h5"
+					noWrap
+					component="h5"
+					sx={{
+						mr: 2,
+						display: {xs: 'flex', md: 'flex'},
+						flexGrow: 1,
+						fontFamily: 'monospace',
+						fontWeight: 700,
+						letterSpacing: '.3rem',
+						color: 'inherit',
+						textDecoration: 'none',
+					}}
+				>
 					Make your URL short
-				</MDBTypography>
-				<MDBCol size="md" md='3' className="align-self-center">
-					<MDBCard>
-						<MDBCardBody>
-							<MDBCardTitle>Sponsored by</MDBCardTitle>
-							<MDBCardText>
-								<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
-									<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
-								</a>
-							</MDBCardText>
+				</Typography>
 
-						</MDBCardBody>
-					</MDBCard>
-				</MDBCol>
+				<Box component="form" noValidate sx={{mt: 1}}>
 
-				<MDBCol size="md" md='6'>
-						<MDBCard className="shadow-5">
-							<MDBCardHeader>
-								<MDBCardTitle>Authorization</MDBCardTitle>
-							</MDBCardHeader>
-							<MDBCardBody>
-									<div className="form-outline mb-3">
-										<MDBInput
-											name='email'
-											id='email'
-											type='email'
-											label="Email"
-											size='lg'
-											value={form.email}
-											onChange={changeHandler}
-										/>
-									</div>
-									<div className="form-outline mb-3">
-										<MDBInput
-											name='password'
-											id='password'
-											type='password'
-											label="Password"
-											size='lg'
-											minLength="8"
-											value={form.password}
-											onChange={changeHandler}
-											className='form-control mb-3'
-										/>
-									</div>
-								<div className="form-check d-flex justify-content-center mb-1">
-									<MDBCheckbox
-										value=""
-										label="I have read and agree to the terms"
-										defaultChecked={checked}
-										onChange={handleChange}
-									/>
-								</div>
-							</MDBCardBody>
-							<MDBCardFooter>
-								<div className="d-flex justify-content-evenly">
-									<div>
-										<MDBBtn
-											color="info"
-											rounded
-											outline
-											size='lg'
-											onClick={signUpHandler}
-											disabled={loading || checked === false || form.email === "" || form.password === ""}
-										>
-											Sign Up
-										</MDBBtn>
-									</div>
-									<div>
-										<MDBBtn
-											outline
-											rounded
-											color='secondary'
-											size='lg'
-											disabled={loading || checked === false || form.email === "" || form.password === ""}
-											onClick={signInHandler}
-										> Sign In </MDBBtn>
-									</div>
-								</div>
-							</MDBCardFooter>
-						</MDBCard>
-				</MDBCol>
+					<TextField
+						margin="normal"
+						required
+						fullWidth
+						id="email"
+						label="Email Address"
+						name="email"
+						autoComplete="email"
+						autoFocus
+						type='email'
+						value={form.email}
+						onChange={changeHandler}
+					/>
+					<TextField
+						margin="normal"
+						required
+						fullWidth
+						name="password"
+						label="Password"
+						type="password"
+						id="password"
+						autoComplete="current-password"
+						size='lg'
+						minLength="8"
+						value={form.password}
+						onChange={changeHandler}
+						className='form-control mb-3'
+					/>
 
-				<MDBCol size="md" md='3' className="align-self-center">
-					<MDBCard>
-						<MDBCardBody>
-							<MDBCardTitle>Sponsored by</MDBCardTitle>
-							<MDBCardText>
-								<a href="https://flbba.org/" target="_blank" rel="noopener noreferrer">
-									<img src="https://himselected.com/sp4.gif" border="0"  alt="flbba.org"/>
-								</a>
-							</MDBCardText>
+					<FormControlLabel
+						control={<Checkbox
+							checked={checked}
+							onChange={handleChange}
+							inputProps={{ 'aria-label': 'controlled' }}
+						/>}
+						label="I have read and agree to the terms"
+					/>
 
-						</MDBCardBody>
-					</MDBCard>
-				</MDBCol>
+					<Button
+						type="submit"
+						color="info"
+						fullWidth
+						variant="contained"
+						sx={{ mt: 3, mb: 2 }}
+						disabled={loading || checked === false || form.email === "" || form.password === ""}
+						onClick={signInHandler}
+					> Sign In </Button>
 
-			</MDBRow>
-		</MDBContainer>
+					<Grid container>
+						<Grid item xs>
+							<Button
+								type="submit"
+								variant="outlined"
+								sx={{ mt: 3, mb: 2 }}
+								onClick={signUpHandler}
+								disabled={loading || checked === false || form.email === "" || form.password === ""}
+							>
+								Sign Up
+							</Button>
+						</Grid>
+					</Grid>
+				</Box>
+
+			</Box>
+
+			<ToastContainer/>
+		</Container>
 	)
 }

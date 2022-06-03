@@ -1,56 +1,171 @@
-import {
-	MDBCollapse,
-	MDBContainer,
-	MDBIcon,
-	MDBNavbar,
-	MDBNavbarBrand, MDBNavbarItem,
-	MDBNavbarNav,
-	MDBNavbarToggler
-} from "mdb-react-ui-kit";
+import BlurCircularSharpIcon from '@mui/icons-material/BlurCircularSharp';
+import MenuIcon from '@mui/icons-material/Menu';
+import {AppBar, Box, Button, Container, IconButton, Menu, Toolbar, Typography} from "@mui/material";
+import MenuItem from '@mui/material/MenuItem';
 import React, {useContext, useState} from 'react';
-import {NavLink, useHistory} from "react-router-dom";
+import {useHistory,Link} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext.js";
 
 const NavBar = () => {
 	const history = useHistory();
 	const {logOut} = useContext(AuthContext);
-	const [showNav, setShowNav] = useState(false);
 
 	const logOutHandler = event => {
 		event.preventDefault();
 		logOut();
 		history.push('/')
 	}
+
+	const [anchorElNav, setAnchorElNav] = useState(null);
+
+	const handleOpenNavMenu = (event) => {
+		setAnchorElNav(event.currentTarget);
+	};
+
+	const handleCloseNavMenu = () => {
+		setAnchorElNav(null);
+	};
+
+
 	return (
-		<MDBNavbar expand='lg' light bgColor='light'>
-			<MDBContainer fluid>
+		<AppBar position="static">
+			<Container maxWidth="xl">
+				<Toolbar disableGutters>
+					{/*LEFT LOGO*/}
 
-				<MDBNavbarBrand href="/" className="text-info">Shorten <MDBIcon fas icon="brain" /></MDBNavbarBrand>
+					<Typography
+						variant="h5"
+						noWrap
+						component="h5"
+						sx={{
+							mr: 2,
+							display: {xs: 'none', md: 'flex'},
+							flexGrow: 1,
+							fontFamily: 'monospace',
+							fontWeight: 700,
+							letterSpacing: '.3rem',
+							color: 'inherit',
+							textDecoration: 'none',
+						}}
+					>
+						Sh<BlurCircularSharpIcon fontSize="large"/>rten
+					</Typography>
 
-				<MDBNavbarToggler
-					type='button'
-					aria-expanded='false'
-					aria-label='Toggle navigation'
-					onClick={() => setShowNav(!showNav)}
-				>
-					<MDBIcon icon='bars' fas />
-				</MDBNavbarToggler>
-				<MDBCollapse navbar show={showNav}>
-					<MDBNavbarNav right className='mb-2 mb-lg-0'>
-						<MDBNavbarItem>
-							<NavLink className="nav-link" to={'/create'}>Create</NavLink>
-						</MDBNavbarItem>
-						<MDBNavbarItem>
-							<NavLink className="nav-link" to={'/links'}>Links</NavLink>
-						</MDBNavbarItem>
-						<MDBNavbarItem>
-							<NavLink className="nav-link" to="/" onClick={logOutHandler}>LogOut</NavLink>
-						</MDBNavbarItem>
-					</MDBNavbarNav>
-				</MDBCollapse>
-			</MDBContainer>
-		</MDBNavbar>
+					<Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+						<IconButton
+							size="large"
+							aria-label="account of current user"
+							aria-controls="menu-appbar"
+							aria-haspopup="true"
+							onClick={handleOpenNavMenu}
+							color="inherit"
+						>
+							<MenuIcon/>
+						</IconButton>
+						<Menu
+							id="menu-appbar"
+							anchorEl={anchorElNav}
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'left',
+							}}
+							keepMounted
+							transformOrigin={{
+								vertical: 'top',
+								horizontal: 'left',
+							}}
+							open={Boolean(anchorElNav)}
+							onClose={handleCloseNavMenu}
+							sx={{
+								display: {xs: 'block', md: 'none'},
+							}}
+						>
+
+							<Link to='/create' sx={{underline:'none'}}>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Typography textAlign="center" sx={{underline: 'none'}}>
+										Create
+									</Typography>
+								</MenuItem>
+							</Link>
+
+							<Link to='/links' sx={{underline: 'none'}}>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Typography textAlign="center">
+										Links
+									</Typography>
+								</MenuItem>
+							</Link>
+
+							<Link to="/" onClick={logOutHandler} sx={{underline: 'none'}}>
+								<MenuItem onClick={handleCloseNavMenu}>
+									<Typography textAlign="center">
+										LogOut
+									</Typography>
+								</MenuItem>
+							</Link>
+
+						</Menu>
+					</Box>
+
+					{/*Middle logo*/}
+
+					<Typography
+						variant="h5"
+						noWrap
+						component="h5"
+						href=""
+						sx={{
+							mr: 2,
+							display: {xs: 'flex', md: 'none'},
+							flexGrow: 1,
+							fontFamily: 'monospace',
+							fontWeight: 700,
+							letterSpacing: '.3rem',
+							color: 'inherit',
+							textDecoration: 'none',
+						}}
+					>
+						Sh<BlurCircularSharpIcon fontSize="large"/>rten
+					</Typography>
+
+					<Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+						<Link to='/create' sx={{underline: 'none'}}>
+							<Button
+								sx={{my: 2, color: 'white', display: 'block'}}
+							>
+								Create
+							</Button>
+						</Link>
+						<Link to='/links' sx={{underline: 'none'}}>
+							<Button
+								sx={{my: 2, color: 'white', display: 'block'}}
+							>
+								Links
+							</Button>
+						</Link>
+						<Link to="/" onClick={logOutHandler} sx={{underline: 'none'}}>
+							<Button
+								sx={{my: 2, color: 'white', display: 'block'}}
+							>
+								LogOut
+							</Button>
+						</Link>
+					</Box>
+				</Toolbar>
+			</Container>
+		</AppBar>
 	);
 };
 
 export default NavBar;
+
+
+// NAVIGATION LINKS
+
+
+/// LOGO MIDDLE
+
+
+//// LOGO LEFT
+

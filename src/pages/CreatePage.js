@@ -1,10 +1,11 @@
-import {MDBInput, MDBRow, MDBBtn, MDBCol} from "mdb-react-ui-kit";
+import {Box, Button, Container, TextField, Typography} from "@mui/material";
 import React, {useContext, useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext.js";
 import {useHttp} from "../shared/hooks/http.hook.js";
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer, toast } from 'react-toastify';
+import SendIcon from '@mui/icons-material/Send';
 
 
 export const CreatePage = ()=> {
@@ -37,32 +38,37 @@ export const CreatePage = ()=> {
 			}
 	}
 	return (
-		<MDBRow>
-			<MDBCol>
-				<MDBRow className="col-8 offset-2 pt-2">
-					<h1 className="text-center">Short Link Generator</h1>
-					<MDBRow>
-							<MDBInput
-								id='link'
-								type='url'
-								size='lg'
-								value={link}
-								onChange={e=>setLink(e.target.value)}
-								label="Insert Your Link"
-							/>
-
-							<MDBBtn
-								type="button"
-								className='my-2'
-								color='info'
-								size='lg'
-								disabled={btn}
-								onClick={pressHandler}
-							>Generate</MDBBtn>
-					</MDBRow>
-					<ToastContainer/>
-				</MDBRow>
-			</MDBCol>
-		</MDBRow>
+		<Container maxWidth="sm">
+			<Box
+				sx={{
+					marginTop: 4,
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}
+			>
+			<Typography variant="h3">Short Link Generator</Typography>
+				<Box component="form" onSubmit={pressHandler} noValidate sx={{ mt: 1 }}>
+						<TextField
+							id='link'
+							label="Original Link"
+							variant="outlined"
+							value={link}
+							required={true}
+							size="small"
+							onChange={e=>setLink(e.target.value)}
+						/>
+					<Button
+						type="submit"
+						variant="outlined"
+						size="large"
+						disabled={btn}
+						// onClick={pressHandler}
+						endIcon={<SendIcon />}
+					>Generate</Button>
+				</Box>
+			<ToastContainer/>
+			</Box>
+		</Container>
 	)
 }

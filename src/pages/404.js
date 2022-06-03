@@ -1,22 +1,23 @@
-import {MDBContainer, MDBIcon, MDBTypography} from "mdb-react-ui-kit";
+
+import {Typography} from "@mui/material";
 import React from 'react';
 import {Link} from "react-router-dom";
 
 const Error404 = () => {
 	return (
 		<>
-			<MDBContainer className=" d-flex align-items-center justify-content-center" fluid style={{height:"90vh"}}>
-				<MDBTypography tag='h1' colorText="info">
+			<div>
+				<Typography variant='h1'>
 					<Link to="/" className="nav-link">
-						Shorten <MDBIcon fas icon="brain"/>
+						Shorten
 					</Link>
 
-				</MDBTypography>
-				<MDBTypography tag='h4' colorText="secondary" className="pb-3">
+				</Typography>
+				<Typography variant='h4'>
 					Make your URL short
-				</MDBTypography>
+				</Typography>
 				<h1 className="text-uppercase">Page Not Found 404</h1>
-			</MDBContainer>
+			</div>
 		</>
 
 	);

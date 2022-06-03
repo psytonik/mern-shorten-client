@@ -31,7 +31,7 @@ const LinkChart = ({link}) => {
 	);
 
 	return <div style={{width:'100%',height:'500px'}}>
-		{/*<h2 className="text-center mt-3"></h2>*/}
+
 		<Line
 			type="line"
 			data={{
