@@ -32,7 +32,7 @@ export const LinksPage = () => {
 			component="main"
 			sx={{
 				flexGrow: 1,
-				height: '90vh',
+				// height: '90vh',
 				overflow: 'auto',
 			}}
 		>
