@@ -13,9 +13,11 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const LinksList = ({links}) => {
+
 	if(!links){
 		return <p>No Links</p>
 	}
+
 	return (
 		<Container>
 			<Box
