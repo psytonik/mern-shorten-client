@@ -39,11 +39,11 @@ export const DetailPage = ()=> {
 	return (
 		<Container  sx={{ mt: 4, mb: 4 }}>
 			<Grid container spacing={2}>
-				<Grid item md={4}>
-					{!loading && link && <LinkCard link={link} />}
+				<Grid item md={4} xs={12}>
+					{!loading && link && (<LinkCard link={link} />)}
 				</Grid>
-				<Grid item md={8}>
-					{!loading && link && <LinkChart link={link}/>}
+				<Grid item md={8} xs={12}>
+					{!loading && link && (<LinkChart link={link}/>)}
 				</Grid>
 			</Grid>
 		</Container>

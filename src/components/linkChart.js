@@ -1,19 +1,20 @@
 import {Paper} from "@mui/material";
-import moment from "moment";
-import React from 'react';
 import {
-	Chart as ChartJS,
 	CategoryScale,
+	Chart as ChartJS,
+	Legend,
 	LinearScale,
-	PointElement,
 	LineElement,
+	PointElement,
 	Title,
 	Tooltip,
-	Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import moment from "moment";
+import React from 'react';
+import {Line} from 'react-chartjs-2';
 
 import {MONTHS_ARR} from '../constants/months.js';
+
 ChartJS.register(
 	CategoryScale,
 	LinearScale,
@@ -44,30 +45,30 @@ const LinkChart = ({link}) => {
 			<Line
 				type="line"
 				data={{
-									labels:MONTHS_ARR,
-									datasets: [
-										{
-											label:'clicks',
-											data:clickCountByMonth,
-											backgroundColor: 'rgba(255, 99, 132, 0.2)',
-											borderColor:'rgba(255, 99, 132, 1)',
-											borderWidth: 3
-										}
-									]
-								}}
+					labels: MONTHS_ARR,
+					datasets: [
+						{
+							label: 'clicks',
+							data: clickCountByMonth,
+							backgroundColor: 'rgba(255, 99, 132, 0.2)',
+							borderColor: 'rgba(255, 99, 132, 1)',
+							borderWidth: 3
+						}
+					]
+				}}
 				options={{
-									maintainAspectRatio:false,
-									responsive:true,
-									scales: {
-										y: {beginAtZero: true}
-									},
-									plugins: {
-										title: {
-											display: true,
-											text: 'Click Statistics',
-										},
-									}
-								}}
+					maintainAspectRatio: false,
+					responsive: true,
+					scales: {
+						y: {beginAtZero: true}
+					},
+					plugins: {
+						title: {
+							display: true,
+							text: 'Click Statistics',
+						},
+					}
+				}}
 			/>
 		</Paper>
 
