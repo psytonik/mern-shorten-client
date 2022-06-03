@@ -44,11 +44,10 @@ const NavBar = () => {
 								fontFamily: 'monospace',
 								fontWeight: 700,
 								letterSpacing: '.3rem',
-								color: 'inherit',
 								textDecoration: 'none',
 							}}
 						>
-							Sh<BlurCircularSharpIcon />rten
+							Sh<BlurCircularSharpIcon size="medium"/>rten
 						</Typography>
 					</Link>
 
@@ -123,12 +122,11 @@ const NavBar = () => {
 								fontFamily: 'monospace',
 								fontWeight: 700,
 								letterSpacing: '.3rem',
-								color: 'inherit',
 								textDecoration: 'none',
 							}}
 						>
 							<Link to="/" style={{textDecoration: 'none', color: 'white'}}>
-							Sh<BlurCircularSharpIcon />rten
+							Sh<BlurCircularSharpIcon size="medium"/>rten
 							</Link>
 
 						</Typography>

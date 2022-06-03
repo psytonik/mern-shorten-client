@@ -89,7 +89,7 @@ export const AuthPage = () => {
 						textDecoration: 'none',
 					}}
 				>
-					Sh<BlurCircularSharpIcon fontSize="large"/>rten
+					Sh<BlurCircularSharpIcon sx={{fontSize:"3rem"}}/>rten
 				</Typography>
 
 				<Typography
