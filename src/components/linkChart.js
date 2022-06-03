@@ -39,6 +39,7 @@ const LinkChart = ({link}) => {
 				flexDirection: 'column',
 				height: 270,
 			}}
+			elevation={3}
 		>
 			<Line
 				type="line"

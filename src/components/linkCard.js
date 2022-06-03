@@ -44,6 +44,7 @@ const LinkCard = ({link}) => {
 				flexDirection: 'column',
 				height: 270,
 			}}
+			elevation={3}
 		>
 			<ToastContainer/>
 

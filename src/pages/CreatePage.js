@@ -47,7 +47,7 @@ export const CreatePage = ()=> {
 					alignItems: 'center',
 				}}
 			>
-			<Typography variant="h3">Short Link Generator</Typography>
+				<Typography variant="h4" component="h4">Short Link Generator</Typography>
 				<Box component="form" onSubmit={pressHandler} noValidate sx={{ mt: 1 }}>
 						<TextField
 							id='link'
@@ -58,15 +58,15 @@ export const CreatePage = ()=> {
 							size="small"
 							onChange={e=>setLink(e.target.value)}
 						/>
-					<Button
-						type="submit"
-						variant="outlined"
-						size="large"
-						disabled={btn}
-						// onClick={pressHandler}
-						endIcon={<SendIcon />}
-					>Generate</Button>
-				</Box>
+						<Button
+							type="submit"
+							variant="outlined"
+							size="large"
+							disabled={btn}
+							// onClick={pressHandler}
+							endIcon={<SendIcon />}
+						>Generate</Button>
+					</Box>
 			<ToastContainer/>
 			</Box>
 		</Container>
