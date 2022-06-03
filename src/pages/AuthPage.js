@@ -4,7 +4,6 @@ import {
 	Button,
 	Checkbox,
 	Container,
-	CssBaseline,
 	FormControlLabel,
 	Grid,
 	TextField,
@@ -67,7 +66,6 @@ export const AuthPage = () => {
 
 	return (
 		<Container component="main" maxWidth="xs">
-			<CssBaseline/>
 			<Box
 				sx={{
 					marginTop: 8,

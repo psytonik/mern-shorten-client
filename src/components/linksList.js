@@ -7,7 +7,7 @@ import {
 	TableCell,
 	TableBody,
 	Container,
-	Typography, Box
+	Box, Typography
 } from "@mui/material";
 import React from "react";
 import {Link} from "react-router-dom";
@@ -20,15 +20,14 @@ const LinksList = ({links}) => {
 		<Container>
 			<Box
 				sx={{
-					marginTop: 4,
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
 				}}
 			>
-				<Typography variant="h4" component="h4">Your Shorted Links</Typography>
 				<TableContainer >
-					<Table>
+					<Typography variant="h6" component="h6" color="primary" gutterBottom>Your Shorted Links</Typography>
+					<Table size="small">
 						<TableHead>
 							<TableRow>
 								<TableCell scope='col'>#</TableCell>
@@ -40,16 +39,16 @@ const LinksList = ({links}) => {
 						<TableBody>
 							{ links && links.map((link,ind)=>{
 								return(
-									<tr key={ind} >
-										<td >{ind+1}</td>
-										<td >{link.from.substring(0,75)}...</td>
-										<td >{link.to}</td>
-										<td >
+									<TableRow key={ind} >
+										<TableCell >{ind+1}</TableCell>
+										<TableCell >{link.from.substring(0,75)}...</TableCell>
+										<TableCell >{link.to}</TableCell>
+										<TableCell >
 											<Link to={`/detail/${link._id}`} style={{textDecoration:'none'}}>
 												<Button >Open</Button>
 											</Link>
-										</td>
-									</tr>
+										</TableCell>
+									</TableRow>
 								)
 							})}
 						</TableBody>

@@ -41,7 +41,7 @@ export const CreatePage = ()=> {
 		<Container maxWidth="sm">
 			<Box
 				sx={{
-					marginTop: 4,
+					marginTop: 8,
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
@@ -55,15 +55,17 @@ export const CreatePage = ()=> {
 							variant="outlined"
 							value={link}
 							required={true}
-							size="small"
+							margin="normal"
+							fullWidth
+							autoFocus
 							onChange={e=>setLink(e.target.value)}
 						/>
 						<Button
 							type="submit"
 							variant="outlined"
-							size="large"
+							color="info"
+							fullWidth
 							disabled={btn}
-							// onClick={pressHandler}
 							endIcon={<SendIcon />}
 						>Generate</Button>
 					</Box>
