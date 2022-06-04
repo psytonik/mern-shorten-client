@@ -1,6 +1,6 @@
 import {Button, Paper, Stack} from "@mui/material";
 
-import React, {useContext, useState,useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 
 import {toast, ToastContainer} from "react-toastify";
@@ -10,11 +10,11 @@ import EditLinkModal from "./editLinkModal.js";
 import Loader from "./loader.js";
 
 const LinkCard = ({link}) => {
-	const {request,loading} = useHttp();
+	const {request, loading} = useHttp();
 	const {userId, token} = useContext(AuthContext);
 	const history = useHistory()
 	const [open, setOpen] = useState(false);
-	const [dataLink,setDataLink] = useState(null);
+	const [dataLink, setDataLink] = useState(null);
 
 	const deleteHandler = async () => {
 
@@ -39,50 +39,50 @@ const LinkCard = ({link}) => {
 		}
 	};
 
-	useEffect(()=>{
+	useEffect(() => {
 		setDataLink(link);
-	},[link]);
+	}, [link]);
 
-	if(loading){
-		return <Loader />
+	if (loading) {
+		return <Loader/>
 	}
 	return dataLink !== null && (
 		<Paper
-		sx={{
-			p: 2,
-			display: 'flex',
-			flexDirection: 'column',
-			height: 270,
-		}}
-		elevation={3}
-	>
-		<ToastContainer/>
+			sx={{
+				p: 2,
+				display: 'flex',
+				flexDirection: 'column',
+				height: 270,
+			}}
+			elevation={3}
+		>
 
-		<p>Date of creation: <strong>{new Date(link.createdAt).toLocaleDateString()}</strong></p>
-		<p>ShortLink: <a
-			href={link.to}
-			target="_blank" rel="noopener noreferrer"
-		>
-			{link.to}
-		</a>
-		</p>
-		<p>Original Link: <a href={link.from} target="_blank"
-		                     rel="noopener noreferrer">{link.from.substring(0,25)}...</a></p>
-		<p>Total Clicks: <strong>{link.clicks}</strong></p>
-		<Stack
-			sx={{ pt: 1 }}
-			direction="row"
-			spacing={2}
-			justifyContent="space-evenly"
-		>
-			<EditLinkModal open={open} setOpen={setOpen} link={link} setLinkData={setDataLink}/>
-			<Button
-				variant="outlined"
-				color="error"
-				onClick={deleteHandler}
-			>Delete</Button>
-		</Stack>
-	</Paper>
+			<p>Date of creation: <strong>{new Date(link.createdAt).toLocaleDateString()}</strong></p>
+			<p>ShortLink: <a
+				href={link.to}
+				target="_blank" rel="noopener noreferrer"
+			>
+				{link.to}
+			</a>
+			</p>
+			<p>Original Link: <a href={link.from} target="_blank"
+			                     rel="noopener noreferrer">{link.from.substring(0, 25)}...</a></p>
+			<p>Total Clicks: <strong>{link.clicks}</strong></p>
+			<Stack
+				sx={{pt: 1}}
+				direction="row"
+				spacing={2}
+				justifyContent="space-evenly"
+			>
+				<EditLinkModal open={open} setOpen={setOpen} link={link} setLinkData={setDataLink}/>
+				<Button
+					variant="outlined"
+					color="error"
+					onClick={deleteHandler}
+				>Delete</Button>
+			</Stack>
+			<ToastContainer/>
+		</Paper>
 	)
 }
 

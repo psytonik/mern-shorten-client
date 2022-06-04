@@ -160,16 +160,16 @@ export const AuthPage = () => {
 						onClick={signInHandler}
 					> Sign In </Button>
 
-					<Grid container>
-						<Grid item xs>
+					<Grid container justifyContent="flex-end">
+						<Grid item>
 							<Button
-								type="submit"
-								variant="outlined"
-								sx={{ mt: 3, mb: 2 }}
+								html="#"
+								variant="body2"
 								onClick={signUpHandler}
+								sx={{color:'#1976d2',cursor:'pointer'}}
 								disabled={loading || checked === false || form.email === "" || form.password === ""}
 							>
-								Sign Up
+								{"Don't have an account? Sign Up"}
 							</Button>
 						</Grid>
 					</Grid>

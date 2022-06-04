@@ -31,6 +31,7 @@ export const LinksPage = () => {
 		<Box
 			component="main"
 			sx={{
+				marginTop: 4,
 				flexGrow: 1,
 				overflow: 'auto',
 			}}
