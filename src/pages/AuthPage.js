@@ -79,7 +79,6 @@ export const AuthPage = () => {
 					noWrap
 					component="h3"
 					sx={{
-						mr: 2,
 						display: {xs: 'flex', md: 'flex'},
 						flexGrow: 1,
 						fontFamily: 'monospace',
@@ -97,12 +96,11 @@ export const AuthPage = () => {
 					noWrap
 					component="h5"
 					sx={{
-						mr: 2,
 						display: {xs: 'flex', md: 'flex'},
 						flexGrow: 1,
 						fontFamily: 'monospace',
 						fontWeight: 700,
-						letterSpacing: '.3rem',
+						letterSpacing: '.2rem',
 						color: 'inherit',
 						textDecoration: 'none',
 					}}
