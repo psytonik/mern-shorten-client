@@ -1,4 +1,3 @@
-import BlurCircularSharpIcon from "@mui/icons-material/BlurCircularSharp.js";
 import {
 	Box,
 	Button,
@@ -10,6 +9,8 @@ import {
 	Typography
 } from "@mui/material";
 import React, {useContext, useEffect, useState} from "react";
+import validator from 'validator';
+
 
 import {toast, ToastContainer} from "react-toastify";
 import {AuthContext} from "../context/AuthContext.js";
@@ -35,6 +36,10 @@ export const AuthPage = () => {
 			if (form.password.length < 8) {
 				return toast.error("Short password, Password must be minimum 8 characters at least");
 			}
+			const valid =validator.isEmail(form.email);
+			if(valid === false){
+				return toast.error("Not Valid Email");
+			}
 			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-up`, 'POST', {...form});
 
 			if (data.success === false) {
@@ -48,6 +53,10 @@ export const AuthPage = () => {
 	}
 	const signInHandler = async () => {
 		try {
+			const valid =validator.isEmail(form.email);
+			if(valid === false){
+				return toast.error("Not Valid Email");
+			}
 			const data = await request(`${process.env.REACT_APP_PUBLIC_LINK}/api/v1/auth/sign-in`, 'POST', {...form});
 
 			if (data.success === false) {
@@ -66,14 +75,12 @@ export const AuthPage = () => {
 
 	return (
 		<Container component="main" maxWidth="xs">
-			<Box
-				sx={{
+			<Box sx={{
 					marginTop: 8,
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
-				}}
-			>
+				}}>
 				<Typography
 					variant="h3"
 					noWrap
@@ -88,7 +95,7 @@ export const AuthPage = () => {
 						textDecoration: 'none',
 					}}
 				>
-					Sh<BlurCircularSharpIcon sx={{fontSize:"3rem"}}/>rten
+					Shorten
 				</Typography>
 
 				<Typography
@@ -108,11 +115,11 @@ export const AuthPage = () => {
 					Make your URL short
 				</Typography>
 
-				<Box component="form" noValidate sx={{mt: 1}}>
+				<Box component="form" sx={{mt: 1}}>
 
 					<TextField
 						margin="normal"
-						required
+						required={true}
 						fullWidth
 						id="email"
 						label="Email Address"
@@ -121,11 +128,12 @@ export const AuthPage = () => {
 						autoFocus
 						type='email'
 						value={form.email}
+
 						onChange={changeHandler}
 					/>
 					<TextField
 						margin="normal"
-						required
+						required={true}
 						fullWidth
 						name="password"
 						label="Password"
@@ -142,7 +150,9 @@ export const AuthPage = () => {
 					<FormControlLabel
 						control={<Checkbox
 							checked={checked}
+							required={true}
 							onChange={handleChange}
+							sx={{mr:0}}
 							inputProps={{ 'aria-label': 'controlled' }}
 						/>}
 						label="I have read and agree to the terms"

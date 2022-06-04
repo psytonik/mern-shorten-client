@@ -1,4 +1,3 @@
-import BlurCircularSharpIcon from '@mui/icons-material/BlurCircularSharp';
 import MenuIcon from '@mui/icons-material/Menu';
 import {AppBar, Box, Button, Container, IconButton, Menu, Toolbar, Typography} from "@mui/material";
 import MenuItem from '@mui/material/MenuItem';
@@ -30,7 +29,7 @@ const NavBar = () => {
 	return (
 		<AppBar position="static">
 			<Container maxWidth="xl">
-				<Toolbar disableGutters>
+				<Toolbar disableGutters >
 					{/*LEFT LOGO*/}
 
 					<Link to="/" style={{textDecoration: 'none', color: 'white'}}>
@@ -47,11 +46,14 @@ const NavBar = () => {
 								textDecoration: 'none',
 							}}
 						>
-							Sh<BlurCircularSharpIcon size="medium"/>rten
+							Shorten
 						</Typography>
 					</Link>
 
-					<Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+					<Box sx={{
+						flexGrow: 1,
+						display: {xs: 'flex', md: 'none'},
+					}}>
 						<IconButton
 							size="large"
 							aria-label="account of current user"
@@ -126,7 +128,7 @@ const NavBar = () => {
 							}}
 						>
 							<Link to="/" style={{textDecoration: 'none', color: 'white'}}>
-							Sh<BlurCircularSharpIcon size="medium"/>rten
+							Shorten
 							</Link>
 
 						</Typography>
